@@ -1,36 +1,15 @@
-import { CardActions, FormControl, makeStyles, MenuItem, Select, TextField } from '@material-ui/core';
+import { CardActions, FormControl, InputAdornment, makeStyles, MenuItem, Select, TextField } from '@material-ui/core';
 import React from 'react';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-
+  selectorContainer: {
+    paddingTop: 0
   },
-  container: {
-    // width: '100%',
-    backgroundColor: '#fff',
-    '&:hover': {
-      backgroundColor: '#fff',
-    }
-  },
-  select: {
-    "&:before": {
-      // normal
-      borderBottom: "1px solid orange"
-    },
-    "&:after": {
-      // focused
-      backgroundColor: "black !important",
-      borderBottom: "1px solid red"
-    },
-    "& ul": {
-        backgroundColor: "#fff",
-    },
-    "& li": {
-        fontSize: 12,
-    },
-},
-  test: {
-    backgroundColor: '#fff'
+  selectIcon: {
+    fontSize: 20,
+    paddingBottom: '7px',
+    color: theme.palette.secondary.main
   }
 }))
 
@@ -38,20 +17,29 @@ const useStyles = makeStyles((theme) => ({
 const dropDownData = ['SDGE']
 
 export default function DropDownSelect() {
-  const classes = useStyles()
+  const [selectedUtility, SetSelectedUtility] = React.useState()
+  const classes = useStyles();
+
+  const handleSelectedUtility = (e) => {
+    SetSelectedUtility(e.target.value);
+  }
+
   return (
-    <CardActions className={classes.root}>
+    <CardActions className={classes.selectorContainer}>
     <TextField 
       style={{width: '100%'}}
       select
-      className={classes.test}
-      inputProps={{style: {backgroundColor: '#fff'}}}
+      value={selectedUtility}
+      inputProps={{style: {textAlign: 'center', backgroundColor: '#fff'}}}
+      onChange={handleSelectedUtility}
+
       InputProps={{
-        backgroundColor: '#fff',
-        // alignItems: 'left',
-        classes: {
-          root:classes.root
-        }
+        
+        startAdornment:( selectedUtility &&
+          <InputAdornment position="start">
+            <CheckCircleIcon className={classes.selectIcon} />
+          </InputAdornment>
+        )
       }}
     >
       {dropDownData.map((item,index) => (
@@ -60,26 +48,6 @@ export default function DropDownSelect() {
         </MenuItem>
       ))}
     </TextField>
-    {/* <FormControl fullWidth focused={true} className={classes.container}>
-      <Select
-        className={classes.select}
-        MenuProps={{
-          classes: {
-            paper: classes.select
-          }
-        }}
-      >
-      {dropDownData.map((item,index) => (
-        <MenuItem MenuProps={{
-          classes: {
-            root: classes.test
-          }
-        }} key={`${item}${index}`} value={item}>
-          {item}
-        </MenuItem>
-      ))}
-      </Select>
-    </FormControl> */}
   </CardActions>
   )
 }

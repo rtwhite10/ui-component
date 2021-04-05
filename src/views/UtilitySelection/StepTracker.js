@@ -48,10 +48,10 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const placeHolder = ['Connect Tesla', 'Add Home', 'Select Utility', 'Select Electric Plan']
 
-export default function StepTracker({text, completed, current = 3}) {
+export default function StepTracker() {
   const classes = useStyles()
+
   return (
     <Card className={classes.root}>
       <CardContent className={classes.container}>
@@ -79,11 +79,10 @@ export default function StepTracker({text, completed, current = 3}) {
           <Box className={classes.cirlce} style={{backgroundColor: 'lightgrey'}}>
             <p className={classes.circleText} >4</p>
           </Box>
-          <Typography className={classes.text} variant="body1">
+          <Typography className={classes.text} style={{opacity: '0.4'}} variant="body1">
           Select Electric Plan
           </Typography>
-        </Box>
-       
+        </Box> 
       </CardContent>
     </Card>
   )
