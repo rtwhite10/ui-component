@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
     padding: '1rem',
     '&:hover': {
       backgroundColor: '#fff'
+    },
+    '@media (max-width: 400px)': {
+      height: 20
     }
   },
   linkIcon: {
@@ -32,7 +35,17 @@ const useStyles = makeStyles((theme) => ({
   icons: {
     height: '100%',
     maxHeight: 30,
-    width: 50
+    width: 50,
+    minWidth:25
+  },
+  pngIcon: {
+    height: '100%',
+    maxHeight: 30,
+    width: 50,
+    minWidth:25,
+    '@media (max-width: 400px)': {
+      width: '100%'
+    }
   }
 }))
 
@@ -52,8 +65,8 @@ export default function IconSection() {
       <Box className={classes.icons}>
         <Sdge />
       </Box>
-      <Box>
-        <img className={classes.icons} src={LeapLogo} alt="Leap"/>
+      <Box className={classes.icons}>
+        <img className={classes.pngIcon} src={LeapLogo} alt="Leap"/>
       </Box>
     </Card>
   </CardContent>

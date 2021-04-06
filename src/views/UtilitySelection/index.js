@@ -42,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'none',
     borderRadius: 20,
     fontSize: '14px',
-    // fontWeight: 'bold'
   },
   disclosureText: {
     fontSize: '10px',
