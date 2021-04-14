@@ -81,7 +81,7 @@ export default function UtilitySelection() {
         <Grid item xs={12}>
 
           {/* Top section headers  */}
-          <Card className={classes.utilityContainer}>
+          <Card elevation={4} className={classes.utilityContainer}>
             <CardContent>
               <Grid container align="center" direction="column" spacing={2}>
                 <Grid item>

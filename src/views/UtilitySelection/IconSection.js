@@ -55,13 +55,13 @@ export default function IconSection() {
 
   return (
   <CardContent className={classes.iconContainer}>
-    <Card className={classes.iconCard} >
+    <Card elevation={4} className={classes.iconCard} >
      <LogoColored />
     </Card>
     <Box className={classes.linkIcon}>
       <LinkIcon />
     </Box>
-    <Card className={classes.iconCard} >
+    <Card elevation={4} className={classes.iconCard} >
       <Box className={classes.icons}>
         <Sdge />
       </Box>

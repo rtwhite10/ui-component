@@ -53,7 +53,7 @@ export default function StepTracker() {
   const classes = useStyles()
 
   return (
-    <Card className={classes.root}>
+    <Card elevation={4} className={classes.root}>
       <CardContent className={classes.container}>
         <Box className={classes.pageStep}>
           <CheckCircleIcon className={classes.completed} />
